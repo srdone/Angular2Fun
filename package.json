@@ -1,0 +1,22 @@
+{
+  "name": "angular2fun",
+  "version": "1.0.0",
+  "description": "Fun with angular 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jspm": "^0.16.33"
+  },
+  "jspm": {
+    "dependencies": {
+      "angular2": "npm:angular2@^2.0.0-beta.16"
+    },
+    "devDependencies": {
+      "typescript": "npm:typescript@^1.6.2"
+    }
+  }
+}
