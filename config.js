@@ -2,14 +2,34 @@ System.config({
   baseURL: "/",
   defaultJSExtensions: true,
   transpiler: "typescript",
+  typescriptOptions: {
+    "tsconfig": true
+  },
   paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
 
+  packages: {
+    "app": {
+      "main": "index",
+      "format": "system",
+      "defaultExtension": "ts",
+      "meta": {
+        "*.ts": {
+          "loader": "ts"
+        }
+      }
+    }
+  },
+
   map: {
-    "angular2": "npm:angular2@2.0.0-beta.16",
+    "angular2": "npm:angular2@2.0.0-beta.17",
+    "ts": "github:frankwallis/plugin-typescript@4.0.7",
     "typescript": "npm:typescript@1.8.10",
+    "github:frankwallis/plugin-typescript@4.0.7": {
+      "typescript": "npm:typescript@1.8.10"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -25,7 +45,7 @@ System.config({
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
     },
-    "npm:angular2@2.0.0-beta.16": {
+    "npm:angular2@2.0.0-beta.17": {
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
       "rxjs": "npm:rxjs@5.0.0-beta.7",
       "zone.js": "npm:zone.js@0.6.12"
