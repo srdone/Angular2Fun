@@ -25,7 +25,7 @@ import { ArticleModel } from './article-model';
       </button>
     </form>
     <div class="ui grid posts">
-      <reddit-article *ngFor="let article of articles" [article]="article"></reddit-article>
+      <reddit-article *ngFor="let article of articles" [article]="article" (delete)="removeArticle($event)"></reddit-article>
     </div>
   `
 })
@@ -38,5 +38,13 @@ export class RedditApp {
   
   addArticle(title: HTMLInputElement, link: HTMLInputElement) {
     this.articles.push(new ArticleModel(title.value, link.value));
+  }
+  
+  removeArticle(article:ArticleModel) {
+    const i = this.articles.indexOf(article);
+    this.articles = [
+      ...this.articles.slice(0, i),
+      ...this.articles.slice(i + 1)
+    ]
   }
 }

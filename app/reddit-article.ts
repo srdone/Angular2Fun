@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import { Component, Input, Output, EventEmitter } from 'angular2/core';
 import { ArticleModel } from './article-model';
 
 @Component({
@@ -6,7 +6,6 @@ import { ArticleModel } from './article-model';
   host: {
     class: 'row'
   },
-  inputs: ['article'],
   template: `
     <div class="four wide column center aligned votes">
       <div class="ui statistic">
@@ -35,10 +34,16 @@ import { ArticleModel } from './article-model';
             downvote
           </a>
         </li>
+        <li class="item">
+          <a (click)="delete.emit(article)">
+            <i class="remove circle icon"></i>
+          </a>
+        </li>
       </ul>
     </div>
   `
 })
 export class ArticleComponent {
-  constructor(public article: ArticleModel) {}
+  @Input() article:ArticleModel;
+  @Output() delete = new EventEmitter();
 }
