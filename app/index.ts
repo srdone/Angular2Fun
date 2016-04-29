@@ -1,10 +1,5 @@
 import { Component } from 'angular2/core';
 import { bootstrap } from 'angular2/platform/browser';
+import { RedditApp } from './reddit-app';
 
-@Component({
-    selector: 'app',
-    template: `<div>Hello World</div>`
-})
-class App{}
-
-bootstrap(App);
+bootstrap(RedditApp);
